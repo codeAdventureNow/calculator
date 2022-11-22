@@ -1,0 +1,18 @@
+Should I use grid or flexbox?
+
+Layout
+
+What is the layout of the design? 
+What buttons will I need?
+Is there a way to have the all clear button be a part inside the calc keys div and not throw off the current layout?
+all clear width was determined by calc width - button margin.
+
+Display
+Clear
++ 
+-
+* 
+/
+0-9
+.
+=
