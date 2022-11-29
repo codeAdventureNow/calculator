@@ -11,15 +11,24 @@
     <h1>Javascript Calculator</h1>
 
     <div class="calculator">
-      <input type="text" class="calc-screen" value="0" disabled />
+      <input type="text" class="calc-display" value="" disabled />
       <div class="flex">
-        <button type="button" class="all-clear margin" value="all-clear">
+        <button
+          type="button"
+          class="calc-keys all-clear margin"
+          value="all-clear"
+        >
           C
         </button>
       </div>
 
       <div class="calc-keys">
-        <button type="button" class="number-decimal button-seven" value="7">
+        <button
+          data-set="7"
+          type="button"
+          class="number-decimal button-seven"
+          value="7"
+        >
           7
         </button>
         <button type="button" class="number-decimal button-eight" value="8">
@@ -35,7 +44,7 @@
         <button type="button" class="number-decimal button-four" value="4">
           4
         </button>
-        <button type="button" class="number-decimalv button-five" value="5">
+        <button type="button" class="number-decimal button-five" value="5">
           5
         </button>
         <button type="button" class="number-decimal button-six" value="6">

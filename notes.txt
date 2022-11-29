@@ -34,3 +34,7 @@ Video 85 in Jonas Course might be a good reference for state managament.
 Later will have button with event listener that will have add to the current state when clicked. Simlilar to othe operands
 
 Can the buttons have more than one querySelector firing on them?
+
+Why is vercel not deploying my project?
+
+Will I convert strings to numbers later or at the time of clicking the button?
