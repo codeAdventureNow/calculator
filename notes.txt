@@ -38,3 +38,7 @@ Can the buttons have more than one querySelector firing on them?
 Why is vercel not deploying my project?
 
 Will I convert strings to numbers later or at the time of clicking the button?
+
+
+How do I update the screen display with the number/button I clicked?
+

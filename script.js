@@ -1,4 +1,5 @@
 const buttons = document.querySelectorAll("button");
+const display = document.querySelector(".calc-display");
 
 //If I do it this way how will I handle operand click?
 
@@ -18,14 +19,18 @@ function handleButtonClick(event) {
   const value = button.value;
   const number = Number(value);
 
-  value = calculator.displayValue;
-  console.log(number);
-  console.log(typeof number);
+  // console.log(typeof number);
+  // value = calculator.displayValue;
+  // console.log(number);
+  // console.log(typeof number);
+  console.log(value);
+  console.log(typeof value);
+  updateDisplay(value);
 }
 
-function updateDisplay() {
+function updateDisplay(value) {
   const display = document.querySelector(".calc-display");
-  display.value = calculator.displayValue;
+  display.value = value;
 }
 
 updateDisplay();
