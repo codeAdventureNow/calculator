@@ -1,12 +1,6 @@
 const buttons = document.querySelectorAll("button");
 const display = document.querySelector(".calc-display");
 
-//If I do it this way how will I handle operand click?
-
-//How do I convert operand strings into acutal operands?
-
-//How do I put the number in the screen dispplay
-
 const calculator = {
   displayValue: "0",
   firstOperand: null,
@@ -23,14 +17,16 @@ function handleButtonClick(event) {
   // value = calculator.displayValue;
   // console.log(number);
   // console.log(typeof number);
-  console.log(value);
-  console.log(typeof value);
+  // console.log(value);
+  // console.log(typeof value);
   updateDisplay(value);
 }
 
 function updateDisplay(value) {
-  const display = document.querySelector(".calc-display");
   display.value = value;
+  // const { displayValue } = calculator;
+  // calculator.displayValue = displayValue === "0" ? value : displayValue + value;
+  // console.log(displayValue);
 }
 
 updateDisplay();
