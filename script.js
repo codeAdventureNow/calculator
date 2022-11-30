@@ -1,36 +1,27 @@
 const buttons = document.querySelectorAll("button");
 const display = document.querySelector(".calc-display");
-
-const calculator = {
-  displayValue: "0",
-  firstOperand: null,
-  waitingForSecondOperand: false,
-  operator: null,
-};
+const clear = document.querySelector(".all-clear");
+const equal = document.querySelector(".equal-sign");
 
 function handleButtonClick(event) {
-  const button = event.currentTarget;
-  const value = button.value;
-  const number = Number(value);
-
-  // console.log(typeof number);
-  // value = calculator.displayValue;
-  // console.log(number);
-  // console.log(typeof number);
-  // console.log(value);
-  // console.log(typeof value);
-  updateDisplay(value);
+  let value = event.target.dataset.num;
+  display.value += value;
 }
-
-function updateDisplay(value) {
-  display.value = value;
-  // const { displayValue } = calculator;
-  // calculator.displayValue = displayValue === "0" ? value : displayValue + value;
-  // console.log(displayValue);
-}
-
-updateDisplay();
 
 buttons.forEach((button) =>
   button.addEventListener("click", handleButtonClick)
 );
+
+equal.addEventListener("click", function () {
+  if (display.value === "") {
+    display.value = "";
+  } else {
+    let answer = eval(display.value);
+    display.value = answer;
+    console.log(answer);
+  }
+});
+
+clear.addEventListener("click", function () {
+  display.value = "0";
+});
