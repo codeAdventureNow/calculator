@@ -14,21 +14,20 @@
   // function inputDigit(digit) {
   //   const { displayValue } = calculator;
   //   // Overwrite `displayValue` if the current value is '0' otherwise append to it
-  calculator.displayValue = displayValue === '0' ? digit : displayValue + digit;
-  // }
+  // calculator.displayValue = displayValue === '0' ? digit : displayValue + digit;
+  // // }
 
   function handleButtonClick(event) {
     let value = event.target.dataset.num; // 2
+
     let priorClick = display.value.charAt(value.length - 1); // +
-    console.log(priorClick);
+    // console.log(priorClick);
     // display.value += value;
 
     // for the first button when the calculator defaults to 0
-    if (display.value.charAt(0) === '0') {
+    if (display.value === '0') {
       // what about if the value is a . ?
-      display.value = '';
-      display.value += value;
-      // display.value = '' + value;
+      display.value = '' + value;
     }
     // for after clicking an operator button
     else if (
@@ -88,15 +87,15 @@
   // Attempts at appending numbers if not a zero, I am trying to figure out how to translate the solution from the freshman into my code.
 
   //Attempt works after clicking numbers twice
-  function handleButtonClick(event) {
-    let value = event.target.dataset.num;
-    if (display.value === '0') {
-      display.value = null;
-    } else {
-      console.log(value);
-      display.value += value;
-    }
-  }
+  // function handleButtonClick(event) {
+  //   let value = event.target.dataset.num;
+  //   if (display.value === '0') {
+  //     display.value = null;
+  //   } else {
+  //     console.log(value);
+  //     display.value += value;
+  //   }
+  // }
 
   buttons.forEach((button) =>
     button.addEventListener('click', handleButtonClick)
