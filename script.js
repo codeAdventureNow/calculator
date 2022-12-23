@@ -1,21 +1,37 @@
 (function () {
   const buttons = document.querySelectorAll('.button');
+  const numberButton = document.querySelectorAll('.number');
+  const operatorButton = document.querySelectorAll('.operator');
   const display = document.querySelector('.calc-display');
+  const decimalButton = document.querySelector('.decimal');
   const clear = document.querySelector('.all-clear');
   const equal = document.querySelector('.equal-sign');
 
   display.value = '0';
 
-  // let leftOperand = 0;
-  // let rightOperand = 0;
-  // let operator = null;
+  function handleNumberClick(event) {
+    let value = event.target.dataset.num; // 2
 
-  // https://freshman.tech/calculator/
-  // function inputDigit(digit) {
-  //   const { displayValue } = calculator;
-  //   // Overwrite `displayValue` if the current value is '0' otherwise append to it
-  // calculator.displayValue = displayValue === '0' ? digit : displayValue + digit;
-  // // }
+    if (display.value === '0') {
+      // what about if the value is a . ?
+      display.value = '' + value;
+    }
+    // for any number click after the first one the 2nd after an operator click
+    else {
+      display.value += value;
+    }
+  }
+
+  function handleOperatorClick(event) {
+    let value = event.target.dataset.num;
+    let priorClick = display.value.charAt(value.length - 1);
+    display.value += value;
+  }
+
+  function handleDecimalClick(event) {
+    let value = event.target.dataset.num;
+    display.value += value;
+  }
 
   function handleButtonClick(event) {
     let value = event.target.dataset.num; // 2
@@ -68,37 +84,14 @@
     }
   }
 
-  // function handleButtonClick(event) {
-  //   let value = event.target.dataset.num;
-  //   console.log(value);
-  //   let priorClick = display.value.charAt(length - 1);
-  //   // console.log(priorClick);
-  //   display.value += value;
-  //   // display.value += value;
-  //   if (display.value.charAt(0) === '0') {
-  //     display.value = '';
-  //   } else if (priorClick == '+' || '-' || '*' || '/' || '.') {
-  //     return;
-  //   } else {
-  //     return;
-  //   }
-  // }
+  numberButton.forEach((button) =>
+    button.addEventListener('click', handleNumberClick)
+  );
 
-  // Attempts at appending numbers if not a zero, I am trying to figure out how to translate the solution from the freshman into my code.
+  decimalButton.addEventListener('click', handleDecimalClick);
 
-  //Attempt works after clicking numbers twice
-  // function handleButtonClick(event) {
-  //   let value = event.target.dataset.num;
-  //   if (display.value === '0') {
-  //     display.value = null;
-  //   } else {
-  //     console.log(value);
-  //     display.value += value;
-  //   }
-  // }
-
-  buttons.forEach((button) =>
-    button.addEventListener('click', handleButtonClick)
+  operatorButton.forEach((button) =>
+    button.addEventListener('click', handleOperatorClick)
   );
 
   equal.addEventListener('click', function (e) {
