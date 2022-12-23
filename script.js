@@ -24,8 +24,18 @@
 
   function handleOperatorClick(event) {
     let value = event.target.dataset.num;
-    let priorClick = display.value.charAt(value.length - 1);
-    display.value += value;
+    let lastValue = display.value.charAt(value.length);
+    // let operators = [['+']['-']];
+    if (
+      lastValue == '+' ||
+      lastValue == '-' ||
+      lastValue == '*' ||
+      lastValue == '/'
+    ) {
+      console.log('Hey buddy');
+    } else {
+      display.value += value;
+    }
   }
 
   function handleDecimalClick(event) {
