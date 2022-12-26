@@ -9,14 +9,23 @@
 
   display.value = '0';
 
-  // function clearPriorCalulation() {
-  //   console.log('What up?');
-  // }
+  function handleEqualsClick(event) {
+    let value = event.target.dataset.num;
+
+    if (display.value === '') {
+      display.value = '';
+    } else {
+      let answer = eval(display.value);
+      display.value = answer;
+      // clearPriorCalulation();
+    }
+  }
+  let hasEqualsBeenClicked = false;
 
   function handleNumberClick(event) {
     let value = event.target.dataset.num;
 
-    let lastValue = display.value.charAt(value.length);
+    let lastValue = display.value.charAt(value.length - 1);
 
     if (display.value === '0') {
       // what about if the value is a . ?
@@ -28,7 +37,7 @@
 
   function handleOperatorClick(event) {
     let value = event.target.dataset.num;
-    let lastValue = display.value.charAt(value.length);
+    let lastValue = display.value.charAt(value.length - 1);
     // let operators = [['+']['-']];
     if (
       lastValue == '+' ||
@@ -36,7 +45,7 @@
       lastValue == '*' ||
       lastValue == '/'
     ) {
-      console.log('Hey buddy');
+      return null;
     } else {
       display.value += value;
     }
@@ -44,13 +53,17 @@
 
   function handleDecimalClick(event) {
     let value = event.target.dataset.num;
-    let lastValue = display.value.charAt(value.length);
+    let lastValue = display.value.charAt(value.length - 1);
 
     if (lastValue == '.') {
       console.log('Hey buddy');
     } else {
       display.value += value;
     }
+  }
+
+  function handleClearClick(event) {
+    display.value = '0';
   }
 
   numberButton.forEach((button) =>
@@ -63,19 +76,9 @@
     button.addEventListener('click', handleOperatorClick)
   );
 
-  equal.addEventListener('click', function (e) {
-    if (display.value === '') {
-      display.value = '';
-    } else {
-      let answer = eval(display.value);
-      display.value = answer;
-      // clearPriorCalulation();
-    }
-  });
+  equal.addEventListener('click', handleEqualsClick);
 
-  clear.addEventListener('click', function () {
-    display.value = '0';
-  });
+  clear.addEventListener('click', handleClearClick);
 })();
 
 // function handleButtonClick(event) {
