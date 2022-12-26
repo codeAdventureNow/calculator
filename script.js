@@ -22,7 +22,7 @@
       let answer = eval(display.value);
       display.value = answer;
       // clearPriorCalulation();
-      hasEqualsBeenClicked = false;
+      hasEqualsBeenClicked = true;
     }
   }
 
@@ -68,8 +68,8 @@
 
     if (lastValue == '.') {
       display.value = stringReplaced + value;
-    } else if (hasEqualsBeenClicked === false) {
-      display.value = '' + value;
+    } else if (hasEqualsBeenClicked === true) {
+      display.value = '.';
     } else {
       display.value += value;
     }
