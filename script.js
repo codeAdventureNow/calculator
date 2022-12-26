@@ -9,8 +9,12 @@
 
   display.value = '0';
 
+  let hasEqualsBeenClicked = false;
+
   function handleEqualsClick(event) {
     let value = event.target.dataset.num;
+    hasEqualsBeenClicked = !hasEqualsBeenClicked;
+    console.log(hasEqualsBeenClicked);
 
     if (display.value === '') {
       display.value = '';
@@ -20,16 +24,16 @@
       // clearPriorCalulation();
     }
   }
-  let hasEqualsBeenClicked = false;
 
   function handleNumberClick(event) {
     let value = event.target.dataset.num;
 
     let lastValue = display.value.charAt(value.length - 1);
 
-    if (display.value === '0') {
+    if (display.value === '0' || hasEqualsBeenClicked === true) {
       // what about if the value is a . ?
       display.value = '' + value;
+      hasEqualsBeenClicked = false;
     } else {
       display.value += value;
     }
