@@ -76,8 +76,11 @@ console.log('hello');
 
     if (lastValue == '.') {
       display.value = stringReplaced + value;
-    } else {
+    } else if (hasEqualsBeenClicked === true) {
       hasEqualsBeenClicked = false;
+      display.value = '' + value;
+    } else {
+      // hasEqualsBeenClicked = true;
       display.value += value;
     }
   }
