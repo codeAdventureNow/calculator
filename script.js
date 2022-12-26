@@ -32,12 +32,20 @@ console.log('hello');
   function handleNumberClick(event) {
     let value = event.target.dataset.num;
 
-    let lastValue = display.value.charAt(value.length - 1);
+    let secondtoLastValue = display.value.charAt(display.value.length - 2);
+    let lastValue = display.value.charAt(display.value.length - 1);
 
     if (display.value === '0') {
       // what about if the value is a . ?
 
       display.value = '' + value;
+    } else if (
+      secondtoLastValue == '+' ||
+      secondtoLastValue == '-' ||
+      secondtoLastValue == '*' ||
+      (secondtoLastValue == '/' && lastValue == '0')
+    ) {
+      console.log('bingo');
     } else if (hasEqualsBeenClicked === true) {
       hasEqualsBeenClicked = false;
       display.value = '' + value;
