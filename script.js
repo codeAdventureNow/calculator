@@ -13,8 +13,9 @@
 
   function handleEqualsClick(event) {
     let value = event.target.dataset.num;
-    hasEqualsBeenClicked = !hasEqualsBeenClicked;
-    console.log(hasEqualsBeenClicked);
+    // hasEqualsBeenClicked = !hasEqualsBeenClicked;
+
+    console.log('equals console.log', hasEqualsBeenClicked);
 
     if (display.value === '') {
       display.value = '';
@@ -31,11 +32,13 @@
 
     let lastValue = display.value.charAt(value.length - 1);
 
-    if (display.value === '0' || hasEqualsBeenClicked === true) {
+    if (display.value === '0' || hasEqualsBeenClicked === false) {
       // what about if the value is a . ?
+      console.log('handle number if');
       display.value = '' + value;
-      hasEqualsBeenClicked = false;
+      hasEqualsBeenClicked = true;
     } else {
+      console.log('handle number else');
       display.value += value;
     }
   }
