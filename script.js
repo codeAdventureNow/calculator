@@ -77,6 +77,7 @@ console.log('hello');
     if (lastValue == '.') {
       display.value = stringReplaced + value;
     } else {
+      hasEqualsBeenClicked = false;
       display.value += value;
     }
   }
