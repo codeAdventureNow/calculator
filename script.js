@@ -41,15 +41,20 @@
 
   function handleOperatorClick(event) {
     let value = event.target.dataset.num;
-    let lastValue = display.value.charAt(value.length - 1);
-    // let operators = [['+']['-']];
+    // console.log(value);
+    let lastValue = display.value.charAt(display.value.length - 1);
+    console.log(lastValue);
+    let stringReplaced = display.value.slice(0, -1);
+
     if (
       lastValue == '+' ||
       lastValue == '-' ||
       lastValue == '*' ||
       lastValue == '/'
     ) {
-      return null;
+      display.value = stringReplaced + value;
+
+      // return null;
     } else {
       display.value += value;
     }
