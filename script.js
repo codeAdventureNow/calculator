@@ -1,3 +1,5 @@
+console.log('hello');
+
 (function () {
   const buttons = document.querySelectorAll('.button');
   const numberButton = document.querySelectorAll('.number');
@@ -13,10 +15,9 @@
 
   function handleEqualsClick(event) {
     let value = event.target.dataset.num;
-    // hasEqualsBeenClicked = !hasEqualsBeenClicked;
 
-    console.log('equals console.log', hasEqualsBeenClicked);
-
+    //Has equals been clicked
+    console.log(hasEqualsBeenClicked);
     if (display.value === '') {
       display.value = '';
     } else {
@@ -24,6 +25,7 @@
       display.value = answer;
       // clearPriorCalulation();
       hasEqualsBeenClicked = true;
+      console.log(hasEqualsBeenClicked);
     }
   }
 
@@ -32,13 +34,15 @@
 
     let lastValue = display.value.charAt(value.length - 1);
 
-    if (display.value === '0' || hasEqualsBeenClicked === false) {
+    if (display.value === '0') {
       // what about if the value is a . ?
-      console.log('handle number if');
+
       display.value = '' + value;
-      hasEqualsBeenClicked = true;
+    } else if (hasEqualsBeenClicked === true) {
+      hasEqualsBeenClicked = false;
+      display.value = '' + value;
     } else {
-      console.log('handle number else');
+      // hasEqualsBeenClicked = true;
       display.value += value;
     }
   }
@@ -60,6 +64,7 @@
 
       // return null;
     } else {
+      hasEqualsBeenClicked = false;
       display.value += value;
     }
   }
@@ -71,8 +76,6 @@
 
     if (lastValue == '.') {
       display.value = stringReplaced + value;
-    } else if (hasEqualsBeenClicked === true) {
-      display.value = '.';
     } else {
       display.value += value;
     }
