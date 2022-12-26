@@ -22,6 +22,7 @@
       let answer = eval(display.value);
       display.value = answer;
       // clearPriorCalulation();
+      hasEqualsBeenClicked = false;
     }
   }
 
@@ -62,10 +63,11 @@
 
   function handleDecimalClick(event) {
     let value = event.target.dataset.num;
-    let lastValue = display.value.charAt(value.length - 1);
+    let lastValue = display.value.charAt(display.value.length - 1);
+    let stringReplaced = display.value.slice(0, -1);
 
     if (lastValue == '.') {
-      console.log('Hey buddy');
+      display.value = stringReplaced + value;
     } else {
       display.value += value;
     }
