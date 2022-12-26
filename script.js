@@ -68,6 +68,8 @@
 
     if (lastValue == '.') {
       display.value = stringReplaced + value;
+    } else if (hasEqualsBeenClicked === false) {
+      display.value = '' + value;
     } else {
       display.value += value;
     }
